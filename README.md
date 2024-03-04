@@ -1,7 +1,7 @@
 # READ ME
 
-Talk *'Learning Stigmergic Communication for Self-organising Coordination'* given by [Stefano Mariani](https://smarianimore.github.io) at [ACSOS 2023](https://2023.acsos.org/track/acsos-2023-papers?#program). 
-Slides here: [https://smarianimore.github.io/2023-acsos-RL-swarms/](https://smarianimore.github.io/2023-acsos-RL-swarms/)
+Talk *'Distributed Discovery of Causal Networks in Pervasive Environments'* given by [Stefano Mariani](https://smarianimore.github.io) at [CoMoReA 2024](https://sites.google.com/view/comorea24/program?authuser=0), PerCom workshop. 
+Slides here: [https://smarianimore.github.io/2024-comorea-causal-mas/](https://smarianimore.github.io/2024-comorea-causal-mas/)
 
 # Credits
 
