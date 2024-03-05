@@ -39,14 +39,14 @@
     <div class="reveal">
       <div class="slides">
 
-        <section data-transition="convex" data-background-image="res/acsos-home.png" data-background-opacity=0.35 data-background-size="cover">
+        <section data-transition="convex" data-background-image="res/percom-home.png" data-background-opacity=0.25 data-background-size="cover">
           <section>
             <p>
-              <small><em>4th IEEE International Conference on Autonomic Computing and Self-Organizing Systems</em> <br> Toronto, Canada, 25-29/9/2023 </small>
+              <small><em>Workshop on Context and Activity Modelling and Recognition</em> <br> Biarritz, France, 11/3/2024 </small>
             </p>
             <hr>
             <br>
-            <h3> Learning <br> Stigmergic Communication <br> for Self-organising Coordination </h3>
+            <h3> Distributed Discovery of Causal Networks in Pervasive Environments </h3>
             <hr>
             <p> <a href="https://smarianimore.github.io">Stefano Mariani</a>, Franco Zambonelli </p>
             <p>
@@ -64,8 +64,9 @@
                 }
               </style>
               <p>
-                <small><strong> Learning Stigmergic Communication for Self-organising Coordination </strong></small>
+                <small><strong> Distributed Discovery of Causal Networks in Pervasive Environments </strong></small>
               </p>
+              <hr>
               <div class="container">
                 <div class="col">
                   <img data-src="res/these-slides.png">
@@ -84,188 +85,217 @@
                   </small></ul>
                 </div>
               </div>
+              <hr>
               <p><small><em> <a href="https://smarianimore.github.io">Stefano Mariani</a>, Franco Zambonelli </em></small></p>
             </script>
           </section>
         </section>
 
-        <section data-transition="convex" data-background-image="res/motivations-1.jpg" data-background-opacity="0.1" data-background-size="contain">
+        <section data-transition="convex">
           <section data-markdown data-auto-animate>
             <script type="text/template">
+              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Motivation
               ----
-              * **Stigmergic communication** widely used for self-organising coordination
-                <ul><small>
-                  <li> agents communicate by locally modifying/observing shared environment </li>
-                  <li> optimisation problems, network routing, MAS/CAS, swarm robotics, ... </li>
-                  <li> simple yet powerful, scalable </li>
-                </small></ul>
+
+              * Achieving goals in pervasive environments requires context awareness to adapt to environment dynamics
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
+              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Motivation
               ----
-              * **Stigmergic communication** widely used for self-organising coordination
-                <ul><small>
-                  <li> agents communicate by locally modifying/observing shared environment </li>
-                  <li> optimisation problems, network routing, MAS/CAS, swarm robotics, ... </li>
-                  <li> simple yet powerful, scalable </li>
-                </small></ul>
-              * Communication rules mostly **hard-coded**
-                <ul><small>
-                  <li> e.g. <em>when</em> to deposit/follow pheromone, how much, ... </li>
-                  <li> typically, fine parameters tuning via simulation </li>
-                </small></ul>
+
+              * Achieving goals in pervasive environments requires context awareness to adapt to environment dynamics
+              * Causal models (i.e. networks of cause-effect relations)
+                - can deliver such awareness
+                - express causation, not mere correlation
+                - uniformly enable prediction, "what-if" analysis, planning, diagnosis, explainability
             </script>
           </section>
-        </section>
-
-        <section data-transition="convex" data-background-image="res/goals-1.jpg" data-background-opacity="0.1" data-background-size="contain">
           <section data-markdown data-auto-animate>
             <script type="text/template">
+              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Motivation
+              ----
+
+              * We embed causal models in software programs all the time!
+                - e.g. `IF cause THEN effects`
+                - e.g. `cause.callback(effects)`
+                - e.g. `belief :- intention.`
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Motivation
+              ----
+
+              * We embed causal models in software programs all the time!
+                - e.g. `IF cause THEN effects`
+                - e.g. `cause.callback(effects)`
+                - e.g. `belief :- intention.`
+              * Requires design-time expert domain knowledge
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Motivation
+              ----
+
+              * We embed causal models in software programs all the time!
+                - e.g. `IF cause THEN effects`
+                - e.g. `cause.callback(effects)`
+                - e.g. `belief :- intention.`
+              * Requires full, design-time, expert domain knowledge
+
+              <p style="color: red"> <em>What if that's not available?</em> </p>
+            </script>
+          </section>
+
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Goal
               ----
-              <p style="color: red"> Can communication policies for self-organising coordination be learnt <em>online and from scratch</em>? </p>
+
+              **Learn** causal models at **run-time**!
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Goal
               ----
-              <p style="color: red"> Can communication policies for self-organising coordination be learnt <em>online and from scratch</em>? </p>
 
-              1. is it feasible?
-              2. is it effective (wrt hard-coded)?
-              3. is it functional to self-organisation?
-              4. is it adaptive to changing goals?
+              **Learn** causal networks at **run-time**!
+
+              * Called **causal discovery** in related literature
+                - assumes full observability of environment...
+                - ...by an individual processing node...
+                - ...aimed at learning the Global Causal Network (GCN)---whole environment
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Goal
+              ----
+
+              **Learn** causal networks at **run-time**!
+
+              * Called **causal discovery** in related literature
+                - assumes full observability of environment...
+                - ...by an individual processing node...
+                - ...aimed at learning the Global Causal Network (GCN)---whole environment
+
+              <p style="color: red"> <em>What if that's not feasible?</em> </p>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Motivation
+              ----
+
+              * Pervasive computing infrastructures are distributed in nature
+                - devices (sensors and actuators) scattered in the environment
+                - 3-tier architecture from Edge-to-Cloud
+                - Edge and Fog nodes have partial observability/control
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Motivation
+              ----
+
+              * Pervasive computing infrastructures are distributed in nature
+                - devices (sensors and actuators) scattered in the environment
+                - 3-tier processing architecture from Edge-to-Cloud (or even fully distributed)
+                - Edge/Fog nodes have partial observability/control
+              * Individual Causal Networks (ICNs) may fail giving nodes the required awereness and control (influences)
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Goal
+              ----
+
+              <p style="color: green"> Learn a Minimal Causal Network (MCN) with <strong>multiple nodes</strong> each with <strong>partial observability</strong>! </p>
+
+              <img data-src="res/2024-comorea-causal-mas-scenario.png" width="70%">
+            </script>
+          </section>
+
+          <section data-markdown>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/contribution.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Contribution
+              ----
+
+              **Collaborative multi-node protocol for distributed causal discovery**
+
+              1. formulate learning and coordination problems
+              2. describe collaborative learning protocol
+              3. evaluate accuracy of MCN against ICN and GCN
             </script>
           </section>
         </section>
 
         <section data-transition="convex">
-          <section data-markdown data-auto-animate>
+          <section data-markdown>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/marl-1.jpg" data-background-opacity="0.15" data-background-size="contain" -->
-              ## Background
+              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Intervention
               ----
-              * **Multiagent reinforcement learning** provides methods for online learning
-              <ul><small>
-                <li> grounded communication: action-based (meaning given by environment) </li>
-                <li> <em>independent Q-learning</em>: no sharing of observations, actions, rewards, params, ... </li>
-              </small></ul>
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/stigmergy-1.jpg" data-background-opacity="0.1" data-background-size="cover" -->
-              ## Background
-              ----
-              * **Multiagent reinforcement learning** provides methods for learning
-              <ul><small>
-                <li> grounded communication: action-based (meaning given by environment) </li>
-                <li> <em>independent Q-learning</em>: no sharing of observations, actions, rewards, params, ... </li>
-              </small></ul>
-              * **Slime mold aggregation** as learning environment
-              <ul><small>
-                <li> cells move around depositing pheromone </li>
-                <li> cells prefer to move toward pheromone </li>
-                <li> pheromone evaporates gradually </li>
-              </small></ul>
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/slime-mold-1.jpg" data-background-opacity="0.1" data-background-size="cover" -->
-              ## Background
-              ----
-              <iframe width="800" height="480" src="https://www.youtube.com/embed/WfnToGc3F1g?si=XvAxPNIWdF6rH9PS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-              Well studied and exploited in MAS and swarm robotics
-            </script>
-          </section>
-        </section>
+              * ML recognises *correlation*, not causation
+              * &shy;<!-- .element: class="fragment" -->Learning through **intervention**
+              + act on a variable *all others being untouched*
+              + observe changes
+              + <!-- .element: class="fragment" -->formalised as do operator do(X=x)
+              - $\mathcal{P}(T) \neq \mathcal{P}(T | do(AC=on))$
+              - $\mathcal{P}(AC) = \mathcal{P}(AC | do(T=t))$
 
-        <section data-transition="convex" data-background-image="res/marl-problem.jpg" data-background-opacity="0.1" data-background-size="contain">
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## MARL problem formulation
-              ----
-              * Obs space: 1-hop pheromone gradient (<em>minimal!</em>)
-              * Action space (1 $\forall$ experiment):
-              <ul><small>
-                <li> (a) drop-chemical, (b) move-toward-chemical, (c) random-walk (<em>challenging</em>) </li>
-                <li> a,b,c + (d) move-and-drop + (e) walk-and-drop (<em>tests action "shadowing"</em>) </li>
-                <li> c + (f) stand-still (<em>no comm baseline</em>) </li>
-                <li> d,e (<em>hard-coded baseline</em>) </li>
-              </small></ul>
+              &shy;<!-- .element: class="fragment" -->*What if cannot intervene (e.g. sensor variable)?*
             </script>
           </section>
-          <section data-markdown data-auto-animate>
+          <section data-markdown>
             <script type="text/template">
-              ## MARL problem formulation
+              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              ### Causal discovery
               ----
-              * Obs space: 1-hop pheromone gradient (<em>minimal!</em>)
-              * Action space (1 $\forall$ experiment):
-              <ul><small>
-                <li> (a) drop-chemical, (b) move-toward-chemical, (c) random-walk (<em>challenging</em>) </li>
-                <li> a,b,c + (d) move-and-drop + (e) walk-and-drop (<em>tests action "shadowing"</em>) </li>
-                <li> c + (f) stand-still (<em>no comm baseline</em>) </li>
-                <li> d,e (<em>hard-coded baseline</em>) </li>
-              </small></ul>
-              * Reward functions (<em>tests adaptation</em>):
-              <ul><small>
-                <li> clustering: $R(s,a) = (\tau * {\color{green}r}) + (\frac{c_s}{c_{th}} * {\color{green}r}^2) + (\bar\tau * {\color{red}p})$ (big, durable blobs) </li>
-                <li> scattering: $\bar{R}(s,a) = (\tau * {\color{red}p}) + (\frac{c_s}{c_{th}} * {\color{red}p}^2) + (\bar\tau * {\color{green}r})$ (opposite) </li>
-              </small></ul>
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## MARL problem formulation
-              ----
-              * Obs space: 1-hop pheromone gradient (<em>minimal!</em>)
-              * Action space (1 $\forall$ experiment):
-              <ul><small>
-                <li> (a) drop-chemical, (b) move-toward-chemical, (c) random-walk (<em>challenging</em>) </li>
-                <li> a,b,c + (d) move-and-drop + (e) walk-and-drop (<em>tests action "shadowing"</em>) </li>
-                <li> c + (f) stand-still (<em>no comm baseline</em>) </li>
-                <li> d,e (<em>hard-coded baseline</em>) </li>
-              </small></ul>
-              * Reward functions (<em>tests adaptation</em>):
-              <ul><small>
-                <li> clustering: $R(s,a) = (\tau * {\color{green}r}) + (\frac{c_s}{c_{th}} * {\color{green}r}^2) + (\bar\tau * {\color{red}p})$ (big, durable blobs) </li>
-                <li> scattering: $\bar{R}(s,a) = (\tau * {\color{red}p}) + (\frac{c_s}{c_{th}} * {\color{red}p}^2) + (\bar\tau * {\color{green}r})$ (NOT big, durable blobs) </li>
-              </small></ul>
-              * Goal: learn <span style="color: blue"> when </span> to deposit/follow pheromone (*no direct incentive in reward!*)
-            </script>
-          </section>
 
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## Experimental setting
-              ----
-              <img width="70%" data-src="res/model-params.png">
+              * Still possible with *identifiability conditions* (i.e. assumptions)
+              + causal network is a DAG
+              + no unknown confounders
+              + (others, no time now)
+              * &shy;<!-- .element: class="fragment" -->E.g. $AC \rightarrow T \leftarrow Season$
+              + *conditional independence* tests
+              + e.g. $\chi^2(T | Season)$ and viceversa
 
-              <small> <em>(typical slide to skip, details in paper)</em> </small>
-            </script>
-          </section>
-        </section>
-
-        <section data-transition="convex">
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/results-1.jpg" data-background-opacity="0.1" data-background-size="cover" -->
-              ## Results: (1) it is feasible :)
-              ----
-              <img data-src="res/example-success-start.png">
+              Result is a causal network (DAG) <!-- .element: class="fragment" -->
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/results-1.jpg" data-background-opacity="0.1" data-background-size="cover" -->
-              ## Results: (1) it is feasible :)
+              <!-- .slide: data-transition="slide" -->
+              ## Problem
               ----
+
+              <img data-src="res/agent-env-4_1.png">
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## Problem
+              ----
+
               <style>
                 .container{
                   display: flex;
@@ -276,21 +306,112 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/example-success-start.png">
+                  <img data-src="res/agent-env-4_1.png">
                 </div>
                 <div class="col">
-                  <img data-src="res/example-success-end.png">
+                  <ul><small>
+                    <li> $N$ agents $\mathcal{A} = \{\mathcal{A}_i\}, i = 1, ..., N$ </li>
+                    <li class="fragment"> $V$ variables = $\mathcal{C} \cup U$ (controlled + uncontrolled) </li>
+                    <li class="fragment"> Each $\mathcal{A}_i$ learns <strong>local causal net</strong> $\mathcal{L}_i$ with observable vars $P_i = \{\mathcal{C}_i \cup U_i\} \subset V$ </li>
+                    <li class="fragment"> Each $\mathcal{A}_i$ has <strong>partial obs</strong>: $V = \bigcup_{i=1}^N P_i$ (overlaps may exist) </li>
+                    <li class="fragment"> Agents can communicate </li>
+                    <li class="fragment"> Agents have criteria to trigger collaboration </li>
+                  </small></ul>
                 </div>
               </div>
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              ## Results: (1) it is feasible :)
+              <!-- .slide: data-transition="slide" -->
+              ## Problem
               ----
-              <img data-src="res/BS-chemical-gradient-02-03_29_41_745_PM-16-Dec-2022_cluster size.png">
 
-              Keys: low $\alpha$, high $\gamma$, goal set (1 cluster w/ most agents)
+              <style>
+                .container{
+                  display: flex;
+                }
+                .col{
+                  flex: 1;
+                }
+              </style>
+              <div class="container">
+                <div class="col">
+                  <img data-src="res/agent-env-4_1.png">
+                </div>
+                <div class="col">
+                  <ul><small>
+                    <li> $N$ agents $\mathcal{A} = \{\mathcal{A}_i\}, i = 1, ..., N$ </li>
+                    <li> $V$ variables = $\mathcal{C} \cup U$ (controlled + uncontrolled) </li>
+                    <li> Each $\mathcal{A}_i$ learns <strong>local causal net</strong> $\mathcal{L}_i$ with observable vars $P_i = \{\mathcal{C}_i \cup U_i\} \subset V$ </li>
+                    <li> Each $\mathcal{A}_i$ has <strong>partial obs</strong>: $V = \bigcup_{i=1}^N P_i$ (overlaps may exist) </li>
+                    <li> Agents can communicate </li>
+                    <li> Agents have <em>criteria to trigger collaboration</em> </li>
+                  </small></ul>
+                </div>
+              </div>
+              <p style="color: red"> Each $\mathcal{A}_i$ wants to learn $M_i$ refining $\mathcal{L}_i$ with unknown variables $\neg{P}_i = V \setminus P_i$ and their links with $P_i$ </p>
+            </script>
+          </section>
+        </section>
+
+        <section data-transition="convex">
+          <section data-markdown>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/protocol_1.png" data-background-opacity="0.15" data-background-size="80%" -->
+              ### Main protocol
+              ----
+
+              In parallel, when $\mathcal{L}_i$ is learnt, agent $\mathcal{A}_i$ does:
+              * <!-- .element: class="fragment" data-fragment-index="1" -->check triggering criteria
+              + &shy;<!-- .element: class="fragment" -->ask help by sending $\mathcal{A}_{j \neq i}$ its **frontier** variables $F_i$
+              <ul><small>
+                <li> e.g. $\mathcal{A}_i$ knows from $\mathcal{L}_i$ that $c \rightarrow e$ but acting on $c$ does not cause $e$ </li>
+                <li> then $e$ might have missing causes, hence put $e$ in $F_i$ </li>
+              </small></ul>
+              + &shy;<!-- .element: class="fragment" -->collect replies (see below) and refine $\mathcal{L}_i$ to $M_i$
+              * <!-- .element: class="fragment" data-fragment-index="1" -->reply to help requests
+              + &shy;<!-- .element: class="fragment" -->if received $f \in F_j$ also $\in P_i$, $\mathcal{A}_i$ replies with $\mathcal{L}_f \subseteq \mathcal{L}_i$ (causal sub-net of $f$)
+              + &shy;<!-- .element: class="fragment" -->else start **intervention-observation**
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/intervention_1.png" data-background-opacity="0.15" data-background-size="75%" -->
+              ## Intervention-observation
+              ----
+
+              * if $f$ is controlled by $\mathcal{A}_j$
+              + &shy;<!-- .element: class="fragment" data-fragment-index="1" -->$\mathcal{A}_j$ intervenes: $do(f = \bar{f})$
+              + &shy;<!-- .element: class="fragment" data-fragment-index="1" -->$\mathcal{A}_i$ observes $\mathcal{P}(P_i)$
+              * <!-- .element: class="fragment" -->otherwise
+              + $\mathcal{A}_i$ intervenes $\forall c \in \mathcal{C}_i$, while $\mathcal{A}_j$ observes $\mathcal{P}(P_j)$
+              + $\mathcal{A}_i$ sends observational data about $\mathcal{P}(U_i)$ to $\mathcal{A}_j$
+
+              <p class="fragment" style="color: green"> Eventually, both agents refine $\mathcal{L}$ into $M$ </p>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
+              <h3 style="color: red"> Coordination issues </h3>
+
+              ----
+
+              * Interventions must be done *one at a time, all other conditions being equal*, by definition
+              <ul><small>
+                <li class="fragment" data-fragment-index="1"> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li class="fragment" data-fragment-index="1"> no ground truth $\implies$ no heuristic </li>
+              </small></ul>
+              * &shy;<!-- .element: class="fragment" -->Interventions in real world (actuators) may *take time*
+              <ul><small>
+                <li class="fragment" data-fragment-index="2"> calls for intervention-observation time window </li>
+                <li class="fragment" data-fragment-index="2"> <strong>negotiation</strong> of duration and frequency </li>
+              </small></ul>
+
+              &shy;<!-- .element: class="fragment" -->Exacerbated as $N \rightarrow \infty$ <br> and comm. topology $\neq$ fully connected
+
+              <p class="fragment" style="color: darkgrey"> <em>(future work)</em> </p>
             </script>
           </section>
         </section>
@@ -298,33 +419,19 @@
         <section data-transition="convex">
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/results-2.jpg" data-background-opacity="0.1" data-background-size="cover" -->
-              ## Results: (2) it is effective :)
+              <!-- .slide: data-transition="slide" -->
+              ### Evaluation scenario
               ----
-              <iframe width="800" height="480" src="https://www.youtube.com/embed/7eSnB8cpmBg?si=YL7GxlT6El-GNjwS"
-                      title="YouTube video player" frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-              Keys: small radius, high $\gamma$, high $p$ $\implies$ 4x speed up!
+              <img data-src="res/icasa.png" width="55%" height="75%">
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              ## Results: (2) it is effective :)
+              <!-- .slide: data-transition="slide" -->
+              ### Evaluation scenario
               ----
-              <img width="65%" data-src="res/BS-3actions-gradient-ticks-01-11_45_55_375_AM-26-Jan-2023_episode timestep.png">
-              <small> <br><br><br><br> learning agents </small>
-              <img width="65%" data-src="res/BS-baseline-nolearn-01-10_24_06_507_AM-26-Jan-2023_episode timestep.png">
-              <small> <br><br><br><br> hard-coded policies </small>
-            </script>
-          </section>
-        </section>
 
-        <section data-transition="convex" data-background-image="res/results-3.jpg" data-background-opacity="0.1" data-background-size="cover">
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## Results: (3) it is self-org :)
-              ----
               <style>
                 .container{
                   display: flex;
@@ -335,22 +442,20 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/self-org.png">
+                  <img data-src="res/fig60_1.png" height="75%">
                 </div>
                 <div class="col">
-                  <br>
-                  <ul>
-                    <li> <em>Beacons</em>: signal to others an opportunity for clustering </li>
-                  </ul>
+                  <img data-src="res/icasa.png" width="55%" height="75%">
                 </div>
               </div>
-              <p><small> (quantitative analysis of emergence of roles in paper) </small></p>
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              ## Results: (3) it is self-org :)
+              <!-- .slide: data-transition="slide" -->
+              ### Evaluation scenario
               ----
+
               <style>
                 .container{
                   display: flex;
@@ -361,77 +466,218 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/self-org.png">
+                  <img data-src="res/fig60_1.png" height="75%">
                 </div>
                 <div class="col">
-                  <br>
-                  <ul>
-                    <li> <em>Beacons</em>: signal to others an opportunity for clustering </li>
-                    <li> <em>Followers</em>: listen and react to signals to form clusters </li>
-                  </ul>
+                  <img data-src="res/icasa.png" width="55%" height="75%">
                 </div>
               </div>
-              <p><small> (quantitative analysis of emergence of roles in paper) </small></p>
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## Results: (3) it is self-org :)
-              ----
-              <style>
-                .container{
-                  display: flex;
-                }
-                .col{
-                  flex: 1;
-                }
-              </style>
-              <div class="container">
-                <div class="col">
-                  <img data-src="res/self-org.png">
-                </div>
-                <div class="col">
-                  <br>
-                  <ul>
-                    <li> <em>Beacons</em>: signal to others an opportunity for clustering </li>
-                    <li> <em>Followers</em>: listen and react to signals to form clusters </li>
-                    <li> <em>Explorers</em>: give chance to escape local optima </li>
-                  </ul>
-                </div>
-              </div>
-              <p><small> (quantitative analysis of emergence of roles in paper) </small></p>
-            </script>
-          </section>
-        </section>
-
-        <section data-transition="convex">
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## Results: (4) it is adaptive :)
-              ----
-
-              <iframe width="800" height="400" src="https://www.youtube.com/embed/y-ZyXFaR8bQ?si=FF1IRZxzvVpi2y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
               <ul>
-                <li> $R(s,a) \rightarrow \bar{R}(s,a)$ $\implies$ clustering $\rightarrow$ scattering </li>
-                <li> <em>Same comm means (pheromone), opposite result!</em> </li>
+                <li> iCasa (simulated) smart home </li>
+                <li> 2 agents: "red" (girl, $\mathcal{A}_1$) and "blue" (boy, $\mathcal{A}_2$) </li>
+                <li> Actuators (circles) $\in \mathcal{C}$ and sensors (boxes) $\in U$ </li>
               </ul>
+            </script>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/metrics.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Performance metrics
+              ----
 
+              * **false positives** (FP): learnt edges not in ground truth (GT)
+              * **false negatives** (FN): edges in GT not learnt
+              * (extended) **Structural Hamming Distance** (SHD): FP + FN + unknowns (missing edges due to $v \notin P_i$)
+              * **time**: to learn $\mathcal{L}$ (baseline) or $M$ (multi-agent)
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## Agent $\mathcal{A}_1$
+              ----
+
+              <div class="r-stack">
+                <img data-src="res/fig61_net_v2_shaded_1.png" height="75%">
+                <img class="fragment" data-src="res/fig63_net_v2_shaded_1.png" height="75%">
+              </div>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## Agent $\mathcal{A}_1$
+              ----
+
+              <style>
+                .container{
+                  display: flex;
+                }
+                .col{
+                  flex: 1;
+                }
+              </style>
+              <div class="container">
+                <div class="col">
+                  <img data-src="res/fig61_net_v2_shaded_1.png">
+                </div>
+                <div class="col">
+                  <img data-src="res/fig63_net_v2_shaded_1.png">
+                </div>
+              </div>
+              <div class="container">
+                <div class="col">
+                  <ul>
+                    <li> FP$_{\mathcal{L}_1}$ = FP$_{M_1}$ </li>
+                    <li> FN$_{\mathcal{L}_1}$ = FN$_{M_1}$ </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul>
+                    <li> SHD$_{\mathcal{L}_1}$ > SHD$_{M_1}$ <br> $\implies M_1$ better </li>
+                  </ul>
+                </div>
+              </div>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## Agent $\mathcal{A}_2$
+              ----
+
+              <div class="r-stack">
+                <img data-src="res/fig62_net_v2_shaded_1.png" height="75%">
+                <img class="fragment" data-src="res/fig63bis_net_v2_shaded_1.png" height="75%">
+              </div>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## Agent $\mathcal{A}_2$
+              ----
+
+              <style>
+                .container{
+                  display: flex;
+                }
+                .col{
+                  flex: 1;
+                }
+              </style>
+              <div class="container">
+                <div class="col">
+                  <img data-src="res/fig62_net_v2_shaded_1.png">
+                </div>
+                <div class="col">
+                  <img data-src="res/fig63bis_net_v2_shaded_1.png">
+                </div>
+              </div>
+              <div class="container">
+                <div class="col">
+                  <ul>
+                    <li> FP$_{\mathcal{L}_2}$ = FP$_{M_2}$ </li>
+                    <li> FN$_{\mathcal{L}_2}$ > FN$_{M_2}$ </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul>
+                    <li> SHD$_{\mathcal{L}_2}$ >> SHD$_{M_2}$ <br> $\implies M_2$ better </li>
+                  </ul>
+                </div>
+              </div>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## FP across GT complexity
+              ----
+
+              <img data-src="res/performance-false-positives-2.jpg">
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## FP across GT complexity
+              ----
+
+              <style>
+                .container{
+                  display: flex;
+                }
+                .col{
+                  flex: 1;
+                }
+              </style>
+              <div class="container">
+                <div class="col">
+                  <img data-src="res/performance-false-positives-2.jpg">
+                </div>
+                <div class="col">
+                  Reasons?
+                  <ul>
+                    <li class="fragment" data-fragment-index="1"> no heuristic $\implies$ combinatorial explosion </li>
+                    <li class="fragment" data-fragment-index="2"> local algorithm (e.g. starts fully connected) </li>
+                  </ul>
+                </div>
+              </div>
+              <p class="fragment" data-fragment-index="2" style="color: darkgrey"> <em>(future work: compare different algorithms, scale up)</em> </p>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## Time across GT complexity
+              ----
+
+              <img data-src="res/performance-time-crop-2.jpg">
+            </script>
+          </section>
+          <section data-markdown data-auto-animate="">
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" -->
+              ## Time across GT complexity
+              ----
+
+              <style>
+                .container{
+                  display: flex;
+                }
+                .col{
+                  flex: 1;
+                }
+              </style>
+              <div class="container">
+                <div class="col">
+                  <img data-src="res/performance-time-crop-2.jpg">
+                </div>
+                <div class="col">
+                  Reasons?
+                  <ul>
+                    <li class="fragment" data-fragment-index="1"> complexity of (conditional) independence tests </li>
+                    <li class="fragment" data-fragment-index="2"> interventions are fast <strong>in simulated env</strong> </li>
+                  </ul>
+                </div>
+              </div>
+              <p class="fragment" data-fragment-index="2" style="color: darkgrey"> <em>(future work: add delays to simulation, test in vitro)</em> </p>
             </script>
           </section>
         </section>
 
-        <section data-transition="convex" data-background-image="res/next-steps.jpg" data-background-opacity="0.1" data-background-size="contain">
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## What now?
-              ----
-              1. Further study adaptation (change goal online)
-              2. Generalise to other environments (eg obstacles) and tasks (eg foraging)
-              3. Benchmark with different learning algos (but still independent learners)
-              4. Compare against evolutionary algorithms
-            </script>
-          </section>
+        <section data-markdown data-transition="convex" data-background-image="res/conclusion.jpg" data-background-opacity=0.25 data-background-size="cover">
+          <script type="text/template">
+            ## Conclusion
+            ----
+
+            1. first-step towards **multi-agent causal discovery**
+            2. <!-- .element: class="fragment" -->general collaboration protocol with pluggable local algorithm
+            3. <!-- .element: class="fragment" -->promising accuracy and performance results
+            4. <!-- .element: class="fragment" -->enabler for provably-correct decision-making beyond ML statistical models
+            5. &shy;<!-- .element: class="fragment" -->enabler for agents' learning-driven **adaptation**
+          </script>
         </section>
 
         <section data-transition="convex" data-background-image="res/confused-meme.png" data-background-opacity=0.25 data-background-size="cover">
