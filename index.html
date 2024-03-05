@@ -69,7 +69,7 @@
               <hr>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/these-slides.png">
+                  <img data-src="res/qrcode_smarianimore.github.io.png">
                 </div>
                 <div class="col">
                   <br>
@@ -231,7 +231,7 @@
             </script>
           </section>
 
-          <section data-markdown>
+          <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-transition="slide" data-background-image="res/contribution.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Contribution
@@ -247,38 +247,88 @@
         </section>
 
         <section data-transition="convex">
-          <section data-markdown>
+          <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
-              ## Intervention
+              ## Preliminaries
               ----
 
-              * ML recognises *correlation*, not causation
-              * &shy;<!-- .element: class="fragment" -->Learning through **intervention**
-              + act on a variable *all others being untouched*
-              + observe changes
-              + <!-- .element: class="fragment" -->formalised as do operator do(X=x)
-              - $\mathcal{P}(T) \neq \mathcal{P}(T | do(AC=on))$
-              - $\mathcal{P}(AC) = \mathcal{P}(AC | do(T=t))$
-
-              &shy;<!-- .element: class="fragment" -->*What if cannot intervene (e.g. sensor variable)?*
+              * Causal models capture cause-effect relationships in networks of interacting variables
+              * Purely statistical ML approaches capture mere correlation, instead
             </script>
           </section>
-          <section data-markdown>
+          <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
-              ### Causal discovery
+              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Preliminaries
               ----
 
-              * Still possible with *identifiability conditions* (i.e. assumptions)
-              + causal network is a DAG
-              + no unknown confounders
-              + (others, no time now)
-              * &shy;<!-- .element: class="fragment" -->E.g. $AC \rightarrow T \leftarrow Season$
-              + *conditional independence* tests
-              + e.g. $\chi^2(T | Season)$ and viceversa
+              * Causal models capture cause-effect relationships in networks of interacting variables
+              * Purely statistical ML approaches capture mere correlation, instead
 
-              Result is a causal network (DAG) <!-- .element: class="fragment" -->
+              Cornerstone to causal discovery is the notion of intervention
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Preliminaries
+              ----
+
+              * Intuition:
+                - act on a variable *all others being untouched*
+                - observe changes
+                - infer cause-effect relation accordingly
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Preliminaries
+              ----
+
+              * Intuition:
+                - act on a variable *all others being untouched*
+                - observe changes
+                - infer cause-effect relation accordingly
+              * Formalised do operator do(X=x)
+                - $\mathcal{P}(T) \neq \mathcal{P}(T | do(AC=on))$
+                - $\mathcal{P}(AC) = \mathcal{P}(AC | do(T=t))$
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              ### Preliminaries
+              ----
+
+              * Intervention requires control (e.g. actuators, not sensors!)
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              ### Preliminaries
+              ----
+
+              * Intervention requires control (e.g. actuators, not sensors!)
+              * Causal discovery possible even with no control
+                - *identifiability conditions* (i.e. assumptions on variables) must hold
+                - e.g. no cycles, no unknown confounders, constraints on stationarity, ...
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              ### Preliminaries
+              ----
+
+              * Intervention requires control (e.g. actuators, not sensors!)
+              * Causal discovery possible even with no control
+                - *identifiability conditions* (i.e. assumptions on variables) must hold
+                - e.g. no cycles, no unknown confounders, constraints on stationarity, ...
+
+              Learnt causal model can be conveniently represented as a DAG
             </script>
           </section>
           <section data-markdown data-auto-animate>
