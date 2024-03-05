@@ -157,7 +157,7 @@
 
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Goal
               ----
 
@@ -166,7 +166,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Goal
               ----
 
@@ -180,7 +180,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Goal
               ----
 
@@ -221,7 +221,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/goals.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Goal
               ----
 
@@ -233,7 +233,7 @@
 
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/contribution.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/contribution.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Contribution
               ----
 
@@ -298,7 +298,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
               ### Preliminaries
               ----
 
@@ -307,7 +307,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
               ### Preliminaries
               ----
 
@@ -319,7 +319,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
               ### Preliminaries
               ----
 
@@ -331,19 +331,20 @@
               Learnt causal model can be conveniently represented as a DAG
             </script>
           </section>
+        </section>
+
+        <section data-transition="convex">
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Problem
+              ## Problem setting
               ----
 
-              <img data-src="res/agent-env-4_1.png">
+              <img data-src="res/2024-comorea-causal-mas-scenario.png">
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Problem
+              ## Problem setting
               ----
 
               <style>
@@ -356,51 +357,27 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/agent-env-4_1.png">
+                  <img data-src="res/024-comorea-causal-mas-scenario.png">
                 </div>
                 <div class="col">
                   <ul><small>
-                    <li> $N$ agents $\mathcal{A} = \{\mathcal{A}_i\}, i = 1, ..., N$ </li>
-                    <li class="fragment"> $V$ variables = $\mathcal{C} \cup U$ (controlled + uncontrolled) </li>
-                    <li class="fragment"> Each $\mathcal{A}_i$ learns <strong>local causal net</strong> $\mathcal{L}_i$ with observable vars $P_i = \{\mathcal{C}_i \cup U_i\} \subset V$ </li>
-                    <li class="fragment"> Each $\mathcal{A}_i$ has <strong>partial obs</strong>: $V = \bigcup_{i=1}^N P_i$ (overlaps may exist) </li>
-                    <li class="fragment"> Agents can communicate </li>
-                    <li class="fragment"> Agents have criteria to trigger collaboration </li>
+                    <li> Multiple Fog nodes having each partial observability over sensors and actuators </li>
+                    <li class="fragment"> Each wants to learn its MCN = ICN + causal links with others' sensors and actuators </li>
+                    <li class="fragment"> GCN not needed but obtainable from MCNs </li>
                   </small></ul>
                 </div>
               </div>
             </script>
           </section>
+
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Problem
+              ## Assumptions
               ----
 
-              <style>
-                .container{
-                  display: flex;
-                }
-                .col{
-                  flex: 1;
-                }
-              </style>
-              <div class="container">
-                <div class="col">
-                  <img data-src="res/agent-env-4_1.png">
-                </div>
-                <div class="col">
-                  <ul><small>
-                    <li> $N$ agents $\mathcal{A} = \{\mathcal{A}_i\}, i = 1, ..., N$ </li>
-                    <li> $V$ variables = $\mathcal{C} \cup U$ (controlled + uncontrolled) </li>
-                    <li> Each $\mathcal{A}_i$ learns <strong>local causal net</strong> $\mathcal{L}_i$ with observable vars $P_i = \{\mathcal{C}_i \cup U_i\} \subset V$ </li>
-                    <li> Each $\mathcal{A}_i$ has <strong>partial obs</strong>: $V = \bigcup_{i=1}^N P_i$ (overlaps may exist) </li>
-                    <li> Agents can communicate </li>
-                    <li> Agents have <em>criteria to trigger collaboration</em> </li>
-                  </small></ul>
-                </div>
-              </div>
-              <p style="color: red"> Each $\mathcal{A}_i$ wants to learn $M_i$ refining $\mathcal{L}_i$ with unknown variables $\neg{P}_i = V \setminus P_i$ and their links with $P_i$ </p>
+              * Each node has algorithm to learn ICN (in isolation)
+              * Network is not partitioned
+              * Nodes can trust each other
             </script>
           </section>
         </section>
