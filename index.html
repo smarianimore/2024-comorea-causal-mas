@@ -53,7 +53,7 @@
               <small><em> University of Modena and Reggio Emilia </em></small>
             </p>
           </section>
-          <section data-markdown data-auto-animate>
+          <section data-markdown data-background-image="res/percom-home.png" data-background-opacity=0.25 data-background-size="cover">
             <script type="text/template">
               <style>
                 .container{
@@ -376,41 +376,80 @@
         <section data-transition="convex">
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              ## Proposed protocol: main
+              ## Learning protocol: main
               ----
 
-              <img data-src="res/protocol-main.png" width="55%">
+              <img data-src="res/protocol-main.png" width="50%">
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              ## Proposed protocol: sub
+              ## Learning protocol: sub
               ----
 
               <img data-src="res/protocol-sub.png" width="70%">
             </script>
           </section>
-          <section data-markdown>
+          <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
-              <h3 style="color: red"> Coordination issues </h3>
+              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
+              <h2 style="color: red"> Coordination issues </h2>
 
               ----
 
               * Interventions must be done *one at a time, all other conditions being equal*, by definition
               <ul><small>
-                <li class="fragment" data-fragment-index="1"> calls for <strong>distributed mutual exclusion</strong> </li>
-                <li class="fragment" data-fragment-index="1"> no ground truth $\implies$ no heuristic </li>
+                <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
               </small></ul>
-              * &shy;<!-- .element: class="fragment" -->Interventions in real world (actuators) may *take time*
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
+              <h2 style="color: red"> Coordination issues </h2>
+
+              ----
+
+              * Interventions must be done *one at a time, all other conditions being equal*, by definition
               <ul><small>
-                <li class="fragment" data-fragment-index="2"> calls for intervention-observation time window </li>
-                <li class="fragment" data-fragment-index="2"> <strong>negotiation</strong> of duration and frequency </li>
+                <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
+              </small></ul>
+              * Interventions in real world (actuators) may *take time*
+              <ul><small>
+                <li> calls for intervention-observation time window </li>
+                <li> <strong>negotiation</strong> of duration and frequency </li>
+              </small></ul>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
+              <h2 style="color: red"> Coordination issues </h2>
+
+              ----
+
+              * Interventions must be done *one at a time, all other conditions being equal*, by definition
+              <ul><small>
+                <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
+              </small></ul>
+              * Interventions in real world (actuators) may *take time*
+              <ul><small>
+                <li> calls for intervention-observation time window </li>
+                <li> <strong>negotiation</strong> of duration and frequency </li>
               </small></ul>
 
-              &shy;<!-- .element: class="fragment" -->Exacerbated as $N \rightarrow \infty$ <br> and comm. topology $\neq$ fully connected
+              Exacerbated as no. of nodes $\rightarrow \infty$ <br> and network topology $\neq$ fully connected
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              ## Coordination protocol
+              ----
 
-              <p class="fragment" style="color: darkgrey"> <em>(future work)</em> </p>
+              TBD
             </script>
           </section>
         </section>
@@ -418,17 +457,15 @@
         <section data-transition="convex">
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ### Evaluation scenario
+              ## Evaluation scenario
               ----
 
-              <img data-src="res/icasa.png" width="55%" height="75%">
+              <img data-src="res/icasa-fog.png" width="33%">
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ### Evaluation scenario
+              ## Evaluation scenario
               ----
 
               <style>
@@ -441,18 +478,17 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/fig60_1.png" height="75%">
+                  <img data-src="res/ground-truth-partitioned.png">
                 </div>
                 <div class="col">
-                  <img data-src="res/icasa.png" width="55%" height="75%">
+                  <img data-src="res/icasa-fog.png" width="60%">
                 </div>
               </div>
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ### Evaluation scenario
+              ## Evaluation scenario
               ----
 
               <style>
@@ -465,47 +501,45 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/fig60_1.png" height="75%">
+                  <img data-src="res/ground-truth-partitioned.png">
                 </div>
                 <div class="col">
-                  <img data-src="res/icasa.png" width="55%" height="75%">
+                  <img data-src="res/icasa-fog.png" width="40%">
                 </div>
               </div>
               <ul>
-                <li> iCasa (simulated) smart home </li>
-                <li> 2 agents: "red" (girl, $\mathcal{A}_1$) and "blue" (boy, $\mathcal{A}_2$) </li>
-                <li> Actuators (circles) $\in \mathcal{C}$ and sensors (boxes) $\in U$ </li>
+                <li> Ground truth GCN of <a href="https://self-star.imag.fr/">iCasa</a> (simulated) smart home </li>
+                <li> 2 Fog nodes: "red" (girl, $\mathcal{N}_1$) and "blue" (boy, $\mathcal{N}_2$) </li>
+                <li> Circles are actuators and boxes are sensors </li>
               </ul>
             </script>
           </section>
-          <section data-markdown>
+          <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/metrics.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/metrics.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Performance metrics
               ----
 
               * **false positives** (FP): learnt edges not in ground truth (GT)
-              * **false negatives** (FN): edges in GT not learnt
-              * (extended) **Structural Hamming Distance** (SHD): FP + FN + unknowns (missing edges due to $v \notin P_i$)
-              * **time**: to learn $\mathcal{L}$ (baseline) or $M$ (multi-agent)
+              * **false negatives** (FN): edges in GT but not learnt
+              * (extended) **Structural Hamming Distance** (SHD): FP + FN + unknowns (missing edges as crossing partial observability boundaries)
+              * **time**: to learn network (ICN, MCN, or GCN)
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Agent $\mathcal{A}_1$
+              ## Results: MCN vs ICN, node $\mathcal{N}_1$
               ----
 
               <div class="r-stack">
-                <img data-src="res/fig61_net_v2_shaded_1.png" height="75%">
-                <img class="fragment" data-src="res/fig63_net_v2_shaded_1.png" height="75%">
+                <img data-src="res/ICN-1.png" height="70%">
+                <img class="fragment" data-src="res/MCN-1.png" height="70%">
               </div>
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Agent $\mathcal{A}_1$
+              ## Results: MCN vs ICN, node $\mathcal{N}_1$
               ----
 
               <style>
@@ -518,22 +552,22 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/fig61_net_v2_shaded_1.png">
+                  <img data-src="res/ICN-1.png">
                 </div>
                 <div class="col">
-                  <img data-src="res/fig63_net_v2_shaded_1.png">
+                  <img data-src="res/MCN-1.png">
                 </div>
               </div>
               <div class="container">
                 <div class="col">
                   <ul>
-                    <li> FP$_{\mathcal{L}_1}$ = FP$_{M_1}$ </li>
-                    <li> FN$_{\mathcal{L}_1}$ = FN$_{M_1}$ </li>
+                    <li> FP$_{ICN}$ = FP$_{MCN}$ = 0 </li>
+                    <li> FN$_{ICN}$ = FN$_{MCN}$ = 0 </li>
                   </ul>
                 </div>
                 <div class="col">
                   <ul>
-                    <li> SHD$_{\mathcal{L}_1}$ > SHD$_{M_1}$ <br> $\implies M_1$ better </li>
+                    <li> SHD$_{ICN}$ = 2 <br> > SHD$_{MCN}$ = 0 <br> $\implies MCN$ better </li>
                   </ul>
                 </div>
               </div>
@@ -541,20 +575,18 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Agent $\mathcal{A}_2$
+              ## Results: MCN vs ICN, node $\mathcal{N}_2$
               ----
 
               <div class="r-stack">
-                <img data-src="res/fig62_net_v2_shaded_1.png" height="75%">
-                <img class="fragment" data-src="res/fig63bis_net_v2_shaded_1.png" height="75%">
+                <img data-src="res/ICN-2.png" height="90%">
+                <img class="fragment" data-src="res/MCN-2.png" height="90%">
               </div>
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Agent $\mathcal{A}_2$
+              ## Results: MCN vs ICN, node $\mathcal{N}_2$
               ----
 
               <style>
@@ -567,22 +599,22 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/fig62_net_v2_shaded_1.png">
+                  <img data-src="res/ICN-2.png">
                 </div>
                 <div class="col">
-                  <img data-src="res/fig63bis_net_v2_shaded_1.png">
+                  <img data-src="res/MCN-2.png">
                 </div>
               </div>
               <div class="container">
                 <div class="col">
                   <ul>
-                    <li> FP$_{\mathcal{L}_2}$ = FP$_{M_2}$ </li>
-                    <li> FN$_{\mathcal{L}_2}$ > FN$_{M_2}$ </li>
+                    <li> FP$_{ICN}$ = FP$_{MCN}$ </li>
+                    <li> FN$_{ICN}$ = 1 > FN$_{MCN}$ = 0 </li>
                   </ul>
                 </div>
                 <div class="col">
                   <ul>
-                    <li> SHD$_{\mathcal{L}_2}$ >> SHD$_{M_2}$ <br> $\implies M_2$ better </li>
+                    <li> SHD$_{ICN}$ = 4 <br> > SHD$_{MCN}$ = 1 <br> $\implies MCN$ better </li>
                   </ul>
                 </div>
               </div>
@@ -590,13 +622,13 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## FP across GT complexity
+              ## Results: MCN vs GCN
               ----
 
-              <img data-src="res/performance-false-positives-2.jpg">
+              TBD
             </script>
           </section>
+
           <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-transition="slide" -->
