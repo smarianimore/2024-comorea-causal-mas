@@ -78,10 +78,10 @@
                   <br>
                   <br>
                   <ul><small>
-                    <li> Browse slides yourself at your pace </li>
+                    <li> Browse slides yourself at your own pace </li>
                     <li> Navigation buttons at bottom right </li>
-                    <li> Go down first, then right next </li>
-                    <li> If on desktop, &lt;Esc&gt; to get enter/exit overview </li>
+                    <li> Scroll all the way down first, then right </li>
+                    <li> If on desktop, &lt;Esc&gt; to enter/exit overview </li>
                   </small></ul>
                 </div>
               </div>
@@ -98,7 +98,7 @@
               ## Motivation
               ----
 
-              * Achieving goals in pervasive environments requires context awareness to adapt to environment dynamics
+              * Achieving goals in pervasive environments requires **context awareness** to adapt to environment dynamics
             </script>
           </section>
           <section data-markdown data-auto-animate>
@@ -107,8 +107,8 @@
               ## Motivation
               ----
 
-              * Achieving goals in pervasive environments requires context awareness to adapt to environment dynamics
-              * Causal models (i.e. networks of cause-effect relations)
+              * Achieving goals in pervasive environments requires **context awareness** to adapt to environment dynamics
+              * **Causal models** (i.e. networks of cause-effect relations)
                 - can deliver such awareness
                 - express causation, not mere correlation
                 - uniformly enable prediction, "what-if" analysis, planning, diagnosis, explainability
@@ -136,7 +136,7 @@
                 - e.g. `IF cause THEN effects`
                 - e.g. `cause.callback(effects)`
                 - e.g. `belief :- intention.`
-              * Requires design-time expert domain knowledge
+              * Requires *design-time, expert, domain knowledge*
             </script>
           </section>
           <section data-markdown data-auto-animate>
@@ -149,7 +149,7 @@
                 - e.g. `IF cause THEN effects`
                 - e.g. `cause.callback(effects)`
                 - e.g. `belief :- intention.`
-              * Requires full, design-time, expert domain knowledge
+              * Requires *design-time, expert, domain knowledge*
 
               <p style="color: red"> <em>What if that's not available?</em> </p>
             </script>
@@ -161,7 +161,7 @@
               ## Goal
               ----
 
-              **Learn** causal models at **run-time**!
+              **Learn** causal networks at **run-time**!
             </script>
           </section>
           <section data-markdown data-auto-animate>
@@ -173,9 +173,9 @@
               **Learn** causal networks at **run-time**!
 
               * Called **causal discovery** in related literature
-                - assumes full observability of environment...
-                - ...by an individual processing node...
-                - ...aimed at learning the Global Causal Network (GCN)---whole environment
+                - assumes *full observability* of environment...
+                - ...by an *individual* processing node...
+                - ...aimed at learning the *Global Causal Network* (GCN)---whole environment
             </script>
           </section>
           <section data-markdown data-auto-animate>
@@ -187,36 +187,34 @@
               **Learn** causal networks at **run-time**!
 
               * Called **causal discovery** in related literature
-                - assumes full observability of environment...
-                - ...by an individual processing node...
-                - ...aimed at learning the Global Causal Network (GCN)---whole environment
+                - assumes *full observability* of environment...
+                - ...by an *individual* processing node...
+                - ...aimed at learning the *Global Causal Network* (GCN)---whole environment
 
               <p style="color: red"> <em>What if that's not feasible?</em> </p>
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Motivation
               ----
 
-              * Pervasive computing infrastructures are distributed in nature
+              * Pervasive computing infrastructures are **distributed** in nature
                 - devices (sensors and actuators) scattered in the environment
                 - 3-tier architecture from Edge-to-Cloud
-                - Edge and Fog nodes have partial observability/control
+                - Edge and Fog nodes have **partial observability/control**
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/motivations.jpg" data-background-opacity="0.15" data-background-size="contain" -->
               ## Motivation
               ----
 
-              * Pervasive computing infrastructures are distributed in nature
-                - devices (sensors and actuators) scattered in the environment
-                - 3-tier processing architecture from Edge-to-Cloud (or even fully distributed)
-                - Edge/Fog nodes have partial observability/control
-              * Individual Causal Networks (ICNs) may fail giving nodes the required awereness and control (influences)
+              * Pervasive computing infrastructures are **distributed** in nature
+                - sensors and actuators scattered in the environment
+                - 3-tier processing architecture from Edge-to-Cloud
+                - processing nodes have **partial observability/control**
+              * *Individual Causal Networks* (ICNs) do not account for *influences* amongst nodes
             </script>
           </section>
           <section data-markdown data-auto-animate>
@@ -225,7 +223,7 @@
               ## Goal
               ----
 
-              <p style="color: green"> Learn a Minimal Causal Network (MCN) with <strong>multiple nodes</strong> each with <strong>partial observability</strong>! </p>
+              <p style="color: green"> Learn a <strong>Minimal Causal Network</strong> (MCN) with multiple nodes with partial observability/control! </p>
 
               <img data-src="res/2024-comorea-causal-mas-scenario.png" width="70%">
             </script>
@@ -249,29 +247,29 @@
         <section data-transition="convex">
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
               ## Preliminaries
               ----
 
-              * Causal models capture cause-effect relationships in networks of interacting variables
-              * Purely statistical ML approaches capture mere correlation, instead
+              * Causal models capture cause-effect relationships in *networks* of interacting variables
+              * Purely statistical ML approaches capture mere *correlation*, instead
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
               ## Preliminaries
               ----
 
-              * Causal models capture cause-effect relationships in networks of interacting variables
-              * Purely statistical ML approaches capture mere correlation, instead
+              * Causal models capture cause-effect relationships in *networks* of interacting variables
+              * Purely statistical ML approaches capture mere *correlation*, instead
 
-              Cornerstone to causal discovery is the notion of intervention
+              Cornerstone to causal discovery is the notion of **intervention**
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
               ## Preliminaries
               ----
 
@@ -283,7 +281,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/intervention.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
               ## Preliminaries
               ----
 
@@ -291,27 +289,27 @@
                 - act on a variable *all others being untouched*
                 - observe changes
                 - infer cause-effect relation accordingly
-              * Formalised do operator do(X=x)
-                - $\mathcal{P}(T) \neq \mathcal{P}(T | do(AC=on))$
-                - $\mathcal{P}(AC) = \mathcal{P}(AC | do(T=t))$
+              * Formalised as do operator $do(X=x)$
+                - $\mathcal{P}(Temp) \neq \mathcal{P}(Temp | do(AC=on))$
+                - $\mathcal{P}(AC) = \mathcal{P}(AC | do(Temp=t))$
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
-              ### Preliminaries
+              ## Preliminaries
               ----
 
-              * Intervention requires control (e.g. actuators, not sensors!)
+              * Intervention requires **control** (e.g. actuators, not sensors!)
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
-              ### Preliminaries
+               Preliminaries
               ----
 
-              * Intervention requires control (e.g. actuators, not sensors!)
+              * Intervention requires **control** (e.g. actuators, not sensors!)
               * Causal discovery possible even with no control
                 - *identifiability conditions* (i.e. assumptions on variables) must hold
                 - e.g. no cycles, no unknown confounders, constraints on stationarity, ...
@@ -320,15 +318,15 @@
           <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
-              ### Preliminaries
+              ## Preliminaries
               ----
 
-              * Intervention requires control (e.g. actuators, not sensors!)
+              * Intervention requires **control** (e.g. actuators, not sensors!)
               * Causal discovery possible even with no control
                 - *identifiability conditions* (i.e. assumptions on variables) must hold
                 - e.g. no cycles, no unknown confounders, constraints on stationarity, ...
 
-              Learnt causal model can be conveniently represented as a DAG
+              Learnt causal model can be conveniently represented as a DAG (a network)
             </script>
           </section>
         </section>
@@ -344,6 +342,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
+              <!-- .slide: data-background-image="res/2024-comorea-causal-mas-scenario.png" data-background-opacity="0.1" data-background-size="cover" -->
               ## Problem setting
               ----
 
@@ -357,65 +356,38 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/024-comorea-causal-mas-scenario.png">
+                  <img data-src="res/2024-comorea-causal-mas-scenario.png">
                 </div>
                 <div class="col">
                   <ul><small>
-                    <li> Multiple Fog nodes having each partial observability over sensors and actuators </li>
-                    <li class="fragment"> Each wants to learn its MCN = ICN + causal links with others' sensors and actuators </li>
+                    <li> Multiple Fog nodes having each <strong>partial observability</strong> over sensors and actuators </li>
+                    <li class="fragment"> Each wants to learn its <strong>MCN = ICN + causal links with others' sensors and actuators</strong> </li>
                     <li class="fragment"> GCN not needed but obtainable from MCNs </li>
+                    <li class="fragment"> Each node has algorithm to learn ICN (in isolation) </li>
+                    <li class="fragment"> Network is not partitioned </li>
+                    <li class="fragment"> Nodes can trust each other </li>
                   </small></ul>
                 </div>
               </div>
             </script>
           </section>
-
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              ## Assumptions
-              ----
-
-              * Each node has algorithm to learn ICN (in isolation)
-              * Network is not partitioned
-              * Nodes can trust each other
-            </script>
-          </section>
         </section>
 
         <section data-transition="convex">
-          <section data-markdown>
+          <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/protocol_1.png" data-background-opacity="0.15" data-background-size="80%" -->
-              ### Main protocol
+              ## Proposed protocol: main
               ----
 
-              In parallel, when $\mathcal{L}_i$ is learnt, agent $\mathcal{A}_i$ does:
-              * <!-- .element: class="fragment" data-fragment-index="1" -->check triggering criteria
-              + &shy;<!-- .element: class="fragment" -->ask help by sending $\mathcal{A}_{j \neq i}$ its **frontier** variables $F_i$
-              <ul><small>
-                <li> e.g. $\mathcal{A}_i$ knows from $\mathcal{L}_i$ that $c \rightarrow e$ but acting on $c$ does not cause $e$ </li>
-                <li> then $e$ might have missing causes, hence put $e$ in $F_i$ </li>
-              </small></ul>
-              + &shy;<!-- .element: class="fragment" -->collect replies (see below) and refine $\mathcal{L}_i$ to $M_i$
-              * <!-- .element: class="fragment" data-fragment-index="1" -->reply to help requests
-              + &shy;<!-- .element: class="fragment" -->if received $f \in F_j$ also $\in P_i$, $\mathcal{A}_i$ replies with $\mathcal{L}_f \subseteq \mathcal{L}_i$ (causal sub-net of $f$)
-              + &shy;<!-- .element: class="fragment" -->else start **intervention-observation**
+              <img data-src="res/protocol-main.png" width="55%">
             </script>
           </section>
-          <section data-markdown>
+          <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" data-background-image="res/intervention_1.png" data-background-opacity="0.15" data-background-size="75%" -->
-              ## Intervention-observation
+              ## Proposed protocol: sub
               ----
 
-              * if $f$ is controlled by $\mathcal{A}_j$
-              + &shy;<!-- .element: class="fragment" data-fragment-index="1" -->$\mathcal{A}_j$ intervenes: $do(f = \bar{f})$
-              + &shy;<!-- .element: class="fragment" data-fragment-index="1" -->$\mathcal{A}_i$ observes $\mathcal{P}(P_i)$
-              * <!-- .element: class="fragment" -->otherwise
-              + $\mathcal{A}_i$ intervenes $\forall c \in \mathcal{C}_i$, while $\mathcal{A}_j$ observes $\mathcal{P}(P_j)$
-              + $\mathcal{A}_i$ sends observational data about $\mathcal{P}(U_i)$ to $\mathcal{A}_j$
-
-              <p class="fragment" style="color: green"> Eventually, both agents refine $\mathcal{L}$ into $M$ </p>
+              <img data-src="res/protocol-sub.png" width="70%">
             </script>
           </section>
           <section data-markdown>
