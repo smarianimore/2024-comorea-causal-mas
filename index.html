@@ -227,7 +227,7 @@
 
               <p style="color: green"> Learn a <strong>Minimal Causal Network</strong> (MCN) with multiple nodes with partial observability/control! </p>
 
-              <img data-src="res/2024-comorea-causal-mas-scenario.png" width="70%">
+              <img data-src="res/2024-comorea-causal-mas-scenario-v2.png" width="70%">
             </script>
           </section>
 
@@ -339,12 +339,12 @@
               ## Problem setting
               ----
 
-              <img data-src="res/2024-comorea-causal-mas-scenario.png">
+              <img data-src="res/2024-comorea-causal-mas-scenario-v2.png">
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/2024-comorea-causal-mas-scenario.png" data-background-opacity="0.1" data-background-size="cover" -->
+              <!-- .slide: data-background-image="res/2024-comorea-causal-mas-scenario-v2.png" data-background-opacity="0.1" data-background-size="cover" -->
               ## Problem setting
               ----
 
@@ -352,22 +352,28 @@
                 .container{
                   display: flex;
                 }
-                .col{
-                  flex: 1;
+                .col-grow{
+                  flex-grow: 0.9;
+                }
+                .col-shrink{
+                  flex-shrink: 1;
                 }
               </style>
               <div class="container">
-                <div class="col">
-                  <img data-src="res/2024-comorea-causal-mas-scenario.png">
+                <div class="col-grow">
+                  <img data-src="res/2024-comorea-causal-mas-scenario-v2.png">
+                  <p class="fragment" data-fragment-index="2"><small>MCN = Minimal Causal Network,
+                    ICN = Individual Causal Network
+                    GCN = Global Causal Network</small></p>
                 </div>
-                <div class="col">
+                <div class="col-shrink">
                   <ul><small>
                     <li> Multiple Fog nodes having each <strong>partial observability</strong> over sensors and actuators </li>
-                    <li class="fragment"> Each wants to learn its <strong>MCN = ICN + causal links with others' sensors and actuators</strong> </li>
+                    <li class="fragment" data-fragment-index="2"> Each wants to learn its <strong>MCN = ICN + causal links with others' sensors and actuators</strong> </li>
                     <li class="fragment"> GCN not needed but obtainable from MCNs </li>
                     <li class="fragment"> Each node has algorithm to learn ICN (in isolation) </li>
                     <li class="fragment"> Network is not partitioned </li>
-                    <li class="fragment"> Nodes can trust each other </li>
+                    <li class="fragment"> Nodes trust each other </li>
                   </small></ul>
                 </div>
               </div>
