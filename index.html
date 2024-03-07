@@ -400,6 +400,7 @@
               * Interventions must be done *one at a time, all other conditions being equal*, by definition
               <ul><small>
                 <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> which node gets attention? which node does interventions? </li>
                 <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
               </small></ul>
             </script>
@@ -414,6 +415,7 @@
               * Interventions must be done *one at a time, all other conditions being equal*, by definition
               <ul><small>
                 <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> which node gets attention? which node does interventions? </li>
                 <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
               </small></ul>
               * Interventions in real world (actuators) may *take time*
@@ -433,6 +435,7 @@
               * Interventions must be done *one at a time, all other conditions being equal*, by definition
               <ul><small>
                 <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> which node gets attention? which node does interventions? </li>
                 <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
               </small></ul>
               * Interventions in real world (actuators) may *take time*
@@ -449,7 +452,37 @@
               ## Coordination protocol
               ----
 
-              TBD
+              * If Cloud node available, centralised coordinator
+                - route help requests (or, connect nodes)
+                - decides which node gets attention
+                - orchestrates interventions
+                - decides intervention time window
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              ## Coordination protocol
+              ----
+
+              * If Cloud node available, centralised coordinator
+                - route help requests (or, connect nodes)
+                - decides which node gets attention
+                - orchestrates interventions
+                - decides intervention time window
+
+              <p style="color: red"> <em>What if that's not available?</em> </p>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              ## Coordination protocol
+              ----
+
+              * 4-stages, *fully decentralised* coordination protocol
+                1. diffuse help requests $\rightarrow$ **gossiping**
+                2. who gets attention $\rightarrow$ **leader election**
+                3. who does intervention $\rightarrow$ **token ring**
+                4. agree on time window $\rightarrow$ **negotiation**
             </script>
           </section>
         </section>
