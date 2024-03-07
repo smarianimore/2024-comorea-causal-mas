@@ -200,9 +200,9 @@
               ----
 
               * Pervasive computing infrastructures are **distributed** in nature
-                - devices (sensors and actuators) scattered in the environment
-                - 3-tier architecture from Edge-to-Cloud
-                - Edge and Fog nodes have **partial observability/control**
+                - sensors and actuators scattered in the environment
+                - 3-tier processing architecture from Edge-to-Cloud
+                - processing nodes have **partial observability/control**
             </script>
           </section>
           <section data-markdown data-auto-animate>
@@ -533,7 +533,9 @@
 
               <div class="r-stack">
                 <img data-src="res/ICN-1.png" height="70%">
-                <img class="fragment" data-src="res/MCN-1.png" height="70%">
+                <p class="fragment fade-out" data-fragment-index="2"><strong>ICN</strong> <br><br><br><br><br><br><br><br><br><br><br> </p>
+                <img class="fragment" data-fragment-index="2" data-src="res/MCN-1.png" height="70%">
+                <p class="fragment fade-in" data-fragment-index="2"><strong>MCN</strong> <br><br><br><br><br><br><br><br><br><br><br> </p>
               </div>
             </script>
           </section>
@@ -579,8 +581,10 @@
               ----
 
               <div class="r-stack">
-                <img data-src="res/ICN-2.png" height="90%">
-                <img class="fragment" data-src="res/MCN-2.png" height="90%">
+                <img data-src="res/ICN-2.png" height="80%">
+                <p class="fragment fade-out" data-fragment-index="2"><strong>ICN</strong> <br><br><br><br><br><br><br><br><br><br><br> </p>
+                <img class="fragment" data-fragment-index="2" data-src="res/MCN-2.png" height="80%">
+                <p class="fragment fade-in" data-fragment-index="2"><strong>MCN</strong> <br><br><br><br><br><br><br><br><br><br><br> </p>
               </div>
             </script>
           </section>
@@ -622,17 +626,7 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              ## Results: MCN vs GCN
-              ----
-
-              TBD
-            </script>
-          </section>
-
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## FP across GT complexity
+              ### Results: MCN$_1 \cap $MCN$_2$ vs GCN
               ----
 
               <style>
@@ -645,32 +639,30 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/performance-false-positives-2.jpg">
+                  <img data-src="res/MCN-1.png">
                 </div>
                 <div class="col">
-                  Reasons?
-                  <ul>
-                    <li class="fragment" data-fragment-index="1"> no heuristic $\implies$ combinatorial explosion </li>
-                    <li class="fragment" data-fragment-index="2"> local algorithm (e.g. starts fully connected) </li>
-                  </ul>
+                  <img data-src="res/MCN-2.png">
                 </div>
               </div>
-              <p class="fragment" data-fragment-index="2" style="color: darkgrey"> <em>(future work: compare different algorithms, scale up)</em> </p>
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Time across GT complexity
+              ### Results: MCN$_1 \cap $MCN$_2$ vs GCN
               ----
 
-              <img data-src="res/performance-time-crop-2.jpg">
+              <div class="r-stack">
+                <img data-src="res/MCN-1.png" height="70%">
+                <img data-src="res/MCN-2.png" height="70%">
+                <img data-src="res/GCN-m.png" height="70%">
+                <p><strong>GCN$_m$</strong> (intersection = edge in both MCNs!) <br><br><br><br><br><br><br><br><br><br><br> </p>
+              </div>
             </script>
           </section>
-          <section data-markdown data-auto-animate="">
+          <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-transition="slide" -->
-              ## Time across GT complexity
+              ### Results: MCN$_1 \cap $MCN$_2$ vs GCN
               ----
 
               <style>
@@ -683,17 +675,31 @@
               </style>
               <div class="container">
                 <div class="col">
-                  <img data-src="res/performance-time-crop-2.jpg">
+                  <div class="r-stack">
+                    <img data-src="res/GCN-c.png">
+                    <p><strong>GCN$_c$</strong> <br><br><br><br><br><br><br><br> </p>
+                  </div>
                 </div>
                 <div class="col">
-                  Reasons?
-                  <ul>
-                    <li class="fragment" data-fragment-index="1"> complexity of (conditional) independence tests </li>
-                    <li class="fragment" data-fragment-index="2"> interventions are fast <strong>in simulated env</strong> </li>
-                  </ul>
+                  <div class="r-stack">
+                    <img data-src="res/GCN-m.png">
+                    <p><strong>GCN$_m$</strong> <br><br><br><br><br><br><br><br> </p>
+                  </div>
                 </div>
               </div>
-              <p class="fragment" data-fragment-index="2" style="color: darkgrey"> <em>(future work: add delays to simulation, test in vitro)</em> </p>
+              <div class="container">
+                <div class="col">
+                  <small><ul>
+                    <li> FP$_{GCN_c}$ = 10 > FP$_{GCN_m} = 0$ </li>
+                    <li> FN$_{GCN_c}$ = 2 > FN$_{GCN_m}$ = 1 </li>
+                  </ul></small>
+                </div>
+                <div class="col">
+                  <small><ul>
+                    <li> SHD$_{GCN_c}$ = 12 > SHD$_{GCN_m}$ = 1 <br> $\implies GCN_m$ better </li>
+                  </ul></small>
+                </div>
+              </div>
             </script>
           </section>
         </section>
