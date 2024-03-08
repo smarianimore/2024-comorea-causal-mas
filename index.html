@@ -407,6 +407,46 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
+              ## Learning protocol: main
+              ----
+
+              <style>
+                .container{
+                  display: flex;
+                }
+                .col-grow{
+                  flex-grow: 1;
+                }
+                .col-shrink{
+                  flex-shrink: 1;
+                }
+              </style>
+              <div class="container">
+                <div class="col-grow">
+                  <img data-src="res/protocol-main.png" width="90%">
+                </div>
+                <div class="col-shrink">
+                  <br>
+                  <br>
+                  <small><ul>
+                    <li> Node $\mathcal{N}_i$ asks for help by sending variables to other nodes $\mathcal{N}_{j \neq i}$ </li>
+                    <li> $\mathcal{N}_i$ collects replies </li>
+                      <ul>
+                        <li> causal sub-network if variable known to $\mathcal{N}_j$ </li>
+                        <li> start intervention sub-protocol </li>
+                      </ul>
+                    <li> In parallel $\mathcal{N}_i$ can help others </li>
+                      <ul>
+                        <li> if received variable known, send sub-network </li>
+                        <li> if unknown, start intervention sub-protocol </li>
+                      </ul>
+                  </ul></small>
+                </div>
+              </div>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
               ## Learning protocol: sub
               ----
 
@@ -415,100 +455,40 @@
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
-              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
-              <h2 style="color: red"> Coordination issues </h2>
-
+              ## Learning protocol: sub
               ----
 
-              * Interventions must be done *one at a time, all other conditions being equal*, by definition
-              <ul><small>
-                <li> calls for <strong>distributed mutual exclusion</strong> </li>
-                <li> which node gets attention? which node does interventions? </li>
-                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
-              </small></ul>
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
-              <h2 style="color: red"> Coordination issues </h2>
-
-              ----
-
-              * Interventions must be done *one at a time, all other conditions being equal*, by definition
-              <ul><small>
-                <li> calls for <strong>distributed mutual exclusion</strong> </li>
-                <li> which node gets attention? which node does interventions? </li>
-                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
-              </small></ul>
-              * Interventions in real world (actuators) may *take time*
-              <ul><small>
-                <li> calls for intervention-observation time window </li>
-                <li> <strong>negotiation</strong> of duration and frequency </li>
-              </small></ul>
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
-              <h2 style="color: red"> Coordination issues </h2>
-
-              ----
-
-              * Interventions must be done *one at a time, all other conditions being equal*, by definition
-              <ul><small>
-                <li> calls for <strong>distributed mutual exclusion</strong> </li>
-                <li> which node gets attention? which node does interventions? </li>
-                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
-              </small></ul>
-              * Interventions in real world (actuators) may *take time*
-              <ul><small>
-                <li> calls for intervention-observation time window </li>
-                <li> <strong>negotiation</strong> of duration and frequency </li>
-              </small></ul>
-
-              Exacerbated as no. of nodes $\rightarrow \infty$ <br> and network topology $\neq$ fully connected
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/coordination.jpg" data-background-opacity="0.15" data-background-size="contain" -->
-              ## Coordination protocol
-              ----
-
-              * If Cloud node available, centralised coordinator
-                - route help requests (or, connect nodes)
-                - decides which node gets attention
-                - orchestrates interventions
-                - decides intervention time window
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/coordination.jpg" data-background-opacity="0.15" data-background-size="contain" -->
-              ## Coordination protocol
-              ----
-
-              * If Cloud node available, centralised coordinator
-                - route help requests (or, connect nodes)
-                - decides which node gets attention
-                - orchestrates interventions
-                - decides intervention time window
-
-              <p style="color: red"> <em>What if that's not available?</em> </p>
-            </script>
-          </section>
-          <section data-markdown data-auto-animate>
-            <script type="text/template">
-              <!-- .slide: data-background-image="res/coordination.jpg" data-background-opacity="0.15" data-background-size="contain" -->
-              ## Coordination protocol
-              ----
-
-              * 4-stages, *fully decentralised* coordination protocol
-                1. diffuse help requests $\rightarrow$ **gossiping**
-                2. who gets attention $\rightarrow$ **leader election**
-                3. who does intervention $\rightarrow$ **token ring**
-                4. agree on time window $\rightarrow$ **negotiation**
+              <style>
+                .container{
+                  display: flex;
+                }
+                .col-grow{
+                  flex-grow: 1;
+                }
+                .col-shrink{
+                  flex-shrink: 1;
+                }
+              </style>
+              <div class="container">
+                <div class="col-grow">
+                  <img data-src="res/protocol-sub.png">
+                </div>
+                <div class="col-shrink">
+                  <br>
+                  <small><ul>
+                    <li> If variable actuated by $\mathcal{N}_j$ </li>
+                    <ul>
+                      <li> $\mathcal{N}_j$ intervenes </li>
+                      <li> $\mathcal{N}_i$ observes </li>
+                    </ul>
+                    <li> If variable not actuated $\mathcal{N}_j$ </li>
+                    <ul>
+                      <li> $\mathcal{N}_i$ intervenes on own actuators (one at atime) while $\mathcal{N}_j$ observes </li>
+                      <li> $\mathcal{N}_j$ sends past sensor data (for independence tests) </li>
+                    </ul>
+                  </ul></small>
+                </div>
+              </div>
             </script>
           </section>
         </section>
@@ -763,13 +743,150 @@
           </section>
         </section>
 
-        <section data-markdown data-transition="convex" data-background-image="res/conclusion.jpg" data-background-opacity=0.25 data-background-size="cover">
-          <script type="text/template">
-            ## Conclusion
-            ----
+        <section data-transition="convex">
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
+              <h2 style="color: red"> Coordination issues </h2>
 
-            TBD
-          </script>
+              ----
+
+              * Interventions must be done *one at a time, all other conditions being equal*, by definition
+              <ul><small>
+                <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> which node gets attention? which node does interventions? </li>
+                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
+              </small></ul>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
+              <h2 style="color: red"> Coordination issues </h2>
+
+              ----
+
+              * Interventions must be done *one at a time, all other conditions being equal*, by definition
+              <ul><small>
+                <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> which node gets attention? which node does interventions? </li>
+                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
+              </small></ul>
+              * Interventions in real world (actuators) may *take time*
+              <ul><small>
+                <li> calls for intervention-observation time window </li>
+                <li> <strong>negotiation</strong> of duration and frequency </li>
+              </small></ul>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination-issues.jpg" data-background-opacity="0.15" data-background-size="70%" -->
+              <h2 style="color: red"> Coordination issues </h2>
+
+              ----
+
+              * Interventions must be done *one at a time, all other conditions being equal*, by definition
+              <ul><small>
+                <li> calls for <strong>distributed mutual exclusion</strong> </li>
+                <li> which node gets attention? which node does interventions? </li>
+                <li> no ground truth $\implies$ no heuristic $\implies$ <strong>global</strong> mutual exclusion </li>
+              </small></ul>
+              * Interventions in real world (actuators) may *take time*
+              <ul><small>
+                <li> calls for intervention-observation time window </li>
+                <li> <strong>negotiation</strong> of duration and frequency </li>
+              </small></ul>
+
+              Exacerbated as no. of nodes $\rightarrow \infty$ <br> and network topology $\neq$ fully connected
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Coordination protocol
+              ----
+
+              * If Cloud node available, centralised coordinator
+              - route help requests (or, connect nodes)
+              - decides which node gets attention
+              - orchestrates interventions
+              - decides intervention time window
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Coordination protocol
+              ----
+
+              * If Cloud node available, centralised coordinator
+              - route help requests (or, connect nodes)
+              - decides which node gets attention
+              - orchestrates interventions
+              - decides intervention time window
+
+              <p style="color: red"> <em>What if that's not available?</em> </p>
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/coordination.jpg" data-background-opacity="0.15" data-background-size="contain" -->
+              ## Coordination protocol
+              ----
+
+              * 4-stages, *fully decentralised* coordination protocol
+              1. diffuse help requests $\rightarrow$ **gossiping**
+              2. who gets attention $\rightarrow$ **leader election**
+              3. who does intervention $\rightarrow$ **token ring**
+              4. agree on time window $\rightarrow$ **negotiation**
+            </script>
+          </section>
+        </section>
+
+        <section data-transition="convex">
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/conclusion.jpg" data-background-opacity="0.25" data-background-size="cover" -->
+              ## Conclusion
+              ----
+
+              * Collaboration deals with partial observability and **improves** individually learnt causal networks
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/conclusion.jpg" data-background-opacity="0.25" data-background-size="cover" -->
+              ## Conclusion
+              ----
+
+              * Collaboration deals with partial observability and **improves** individually learnt causal networks
+              * Merging improved networks (the MCNs) can lead to **better GCN** than learning with full observability
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/conclusion.jpg" data-background-opacity="0.25" data-background-size="cover" -->
+              ## Conclusion
+              ----
+
+              * Collaboration deals with partial observability and **improves** individually learnt causal networks
+              * Merging improved networks (the MCNs) can lead to **better GCN** than learning with full observability
+              * Mutual exclusion amongst interventions can be dealt with even in **fully decentralised** settings with SOTA methods (gossiping, leader election, ...)
+            </script>
+          </section>
+          <section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/crossroad.jpg" data-background-opacity="0.25" data-background-size="cover" -->
+              ## Outlook
+              ----
+
+              * Assess performance with **increasing agents**
+              * Assess convergence properties of **coordination protocol** in fully decentralised setting
+              * Benchmark against known causal networks of **increasing complexity**
+              * Assess impact of different individual learning algorithms on collaboration performance
+            </script>
+          </section>
         </section>
 
         <section data-transition="convex" data-background-image="res/confused-meme.png" data-background-opacity=0.25 data-background-size="cover">
