@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html">
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -289,7 +289,7 @@
 
               * Intuition:
                 - act on a variable *all others being untouched*
-                - observe changes
+                - observe changes of other variables
                 - infer cause-effect relation accordingly
               * Formalised as do operator $do(X=x)$
                 - $\mathcal{P}(Temp) \neq \mathcal{P}(Temp | do(AC=on))$
@@ -302,13 +302,28 @@
               ## Preliminaries
               ----
 
+              * Off-the-shelf algorithm for *individual* discovery$^*$
+                1. start with fully connected network of variables
+                2. for each edge, try to remove or orient it through interventions
+                3. whenever (2) impossible, try to remove edges using independence tests (e.g. $\chi^2$)
+                4. for the possibly remaining edges, heuristic procedures can be tried$^*$
+
+              <p style="color: grey"> <small>$^*$ K. Fadiga, E. Houze, A. Diaconescu, and J. Dessalles, <a href="https://doi.org/10.1109/ACSOS52086.2021.00030">"To do or not to do: finding causal relations in smart homes" </a></small> </p>
+            </script>
+          </section>
+          <!--<section data-markdown data-auto-animate>
+            <script type="text/template">
+              <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
+              <!--## Preliminaries
+              ----
+
               * Intervention requires **control** (e.g. actuators, not sensors!)
             </script>
           </section>
           <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
-               Preliminaries
+               <!--Preliminaries
               ----
 
               * Intervention requires **control** (e.g. actuators, not sensors!)
@@ -320,7 +335,7 @@
           <section data-markdown data-auto-animate>
             <script type="text/template">
               <!-- .slide: data-background-image="res/causal-discovery.jpg" data-background-opacity="0.15" data-background-size="cover" -->
-              ## Preliminaries
+              <!--## Preliminaries
               ----
 
               * Intervention requires **control** (e.g. actuators, not sensors!)
@@ -330,7 +345,7 @@
 
               Learnt causal model can be conveniently represented as a DAG (a network)
             </script>
-          </section>
+          </section>-->
         </section>
 
         <section data-transition="convex">
